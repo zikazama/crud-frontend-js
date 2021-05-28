@@ -11,7 +11,6 @@ export default class EditBarang extends Component {
     this.onChangeBarangName = this.onChangeBarangName.bind(this);
     this.onChangeBarangPrice = this.onChangeBarangPrice.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-
     // State
     this.state = {
       nama: '',

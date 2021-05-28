@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 
@@ -10,10 +10,11 @@ export default class BarangTableRow extends Component {
         this.deleteBarang = this.deleteBarang.bind(this);
     }
 
-    deleteStudent() {
-        axios.delete('http://localhost:5000/barang/' + this.props.obj._id)
+    deleteBarang() {
+        axios.delete('http://localhost:5000/barang/' + this.props.obj.id_barang)
             .then((res) => {
                 console.log('Barang successfully deleted!')
+                return <Redirect to='/barang-list'  />
             }).catch((error) => {
                 console.log(error)
             })
@@ -22,10 +23,10 @@ export default class BarangTableRow extends Component {
     render() {
         return (
             <tr>
-                <td>{this.props.obj.name}</td>
-                <td>{this.props.obj.email}</td>
+                <td>{this.props.obj.nama}</td>
+                <td>{this.props.obj.harga}</td>
                 <td>
-                    <Link className="edit-link" to={"/edit-barang/" + this.props.obj._id}>
+                    <Link className="edit-link" to={"/edit-barang/" + this.props.obj.id_barang}>
                         Edit
                     </Link>
                     <Button onClick={this.deleteBarang} size="sm" variant="danger">Delete</Button>

@@ -42,16 +42,16 @@ export default class CreateBarang extends Component {
   }
 
   render() {
-    return (<div class="form-wrapper">
-      <Form>
+    return (<div className="form-wrapper">
+      <Form onSubmit={this.onSubmit}>
         <Form.Group controlId="Name">
           <Form.Label>Name</Form.Label>
-          <Form.Control type="text"/>
+          <Form.Control type="text" value={this.state.nama} onChange={this.onChangeBarangName}/>
         </Form.Group>
 
         <Form.Group controlId="Price">
           <Form.Label>Price</Form.Label>
-          <Form.Control type="text"/>
+          <Form.Control type="text" value={this.state.harga} onChange={this.onChangeBarangPrice}/>
         </Form.Group>
 
         <br/>
